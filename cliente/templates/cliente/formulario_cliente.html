@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo cliente{% endblock %}
+
+{% block content %}
+    <h1>Registrar cliente</h1>
+
+    <form method="post" class="form-clientes">
+        {% csrf_token %}
+        <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" name="telefono">
+        </div>
+
+        <button type="submit" class="btn">Guardar</button>
+        <a href="{% url 'cliente_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
